@@ -10,7 +10,7 @@ Lightweight Symfony Demo Application for the Spreadsheet Translator functionalli
 Installation
 ------------
 
-composer require atico/spreadsheet-translator-symfony-demo-local-file-provider-php-exporter
+composer create-project atico/spreadsheet-translator-symfony-demo-local-file-provider-php-exporter
 
 This will install the demo application into your computer
 
