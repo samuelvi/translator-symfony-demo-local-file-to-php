@@ -1,0 +1,4 @@
+composer.lock
+vendor/
+downloaded_resource.xls
+var/

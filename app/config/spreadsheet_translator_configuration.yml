@@ -1,0 +1,15 @@
+
+atico_spreadsheet_translator:
+    frontend:
+        provider:
+            name: 'local_file'
+            source_resource: '%kernel.root_dir%/Resources/doc/homepage.xlsx'
+        exporter:
+            format: 'php'
+            prefix: 'demo_'
+            domain: 'common'
+            destination_folder: '%kernel.project_dir%/app/Resources/translations'
+        shared:
+            temp_local_source_file: '%kernel.project_dir%/downloaded_resource.xls'
+            default_locale: 'en'
+            name_separator: '_'

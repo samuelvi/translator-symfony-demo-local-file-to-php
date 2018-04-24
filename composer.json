@@ -1,0 +1,28 @@
+{
+    "name": "atico/spreadsheet-translator-symfony-demo-local-file-provider-php-exporter",
+    "license": "MIT",
+    "type": "project",
+    "description": "Spreadsheet Translator Symfony Demo Application with Local File Provider and Php Exporter",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        },
+        "classmap": [
+            "app/AppKernel.php"
+        ]
+    },
+    "require": {
+
+        "php": ">=5.5.9",
+        "symfony/symfony": "^3.1",
+
+        "atico/spreadsheet-translator-core": "^1.0",
+        "atico/spreadsheet-translator-symfony-bundle": "^1.0",
+        "atico/spreadsheet-translator-provider-localfile": "^1.0",
+        "atico/spreadsheet-translator-reader-xlsx": "^1.0",
+        "atico/spreadsheet-translator-exporter-php": "^1.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
