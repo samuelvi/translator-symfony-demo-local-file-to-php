@@ -4,13 +4,13 @@ Spreadsheet Translator Symfony Demo Application - Use Case
 Introduction
 ------------
 
-Lightweight Symfony Demo Application for the Spreadsheet Translator functionallity considering a local file as a spreadsheet source file and php format for translated file.
-
+Lightweight Symfony Demo Application for the Spreadsheet Translator functionallity.
+The demo brings a command that takes a local spreadhseet file and creates a translation file per locale in Php format.
 
 Installation
 ------------
 
-composer create-project atico/spreadsheet-translator-symfony-demo-local-file-provider-php-exporter
+composer create-project atico/translator-symfony-demo-local-file-to-php
 
 This will install the demo application into your computer
 

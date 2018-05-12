@@ -1,8 +1,8 @@
 {
-    "name": "atico/spreadsheet-translator-symfony-demo-local-file-provider-php-exporter",
+    "name": "atico/translator-symfony-demo-local-file-to-php",
     "license": "MIT",
     "type": "project",
-    "description": "Spreadsheet Translator Symfony Demo Application with Local File Provider and Php Exporter",
+    "description": "Spreadsheet Translator. Symfony Demo Application. Tankes a local spreadsheet file and creates a translation file per locale in Php format",
     "autoload": {
         "psr-4": {
             "": "src/"
