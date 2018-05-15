@@ -1,28 +1,37 @@
 {
-    "name": "atico/translator-symfony-demo-local-file-to-php",
-    "license": "MIT",
-    "type": "project",
-    "description": "Spreadsheet Translator. Symfony Demo Application. Tankes a local spreadsheet file and creates a translation file per locale in Php format",
-    "autoload": {
-        "psr-4": {
-            "": "src/"
-        },
-        "classmap": [
-            "app/AppKernel.php"
-        ]
+  "name": "atico/translator-symfony-demo-local-file-to-php",
+  "license": "MIT",
+  "type": "project",
+  "description": "Spreadsheet Translator. Symfony Demo Application. Tankes a local spreadsheet file and creates a translation file per locale in Php format",
+  "autoload": {
+    "psr-4": {
+      "": "src/"
     },
-    "require": {
-
-        "php": ">=5.5.9",
-        "symfony/symfony": "^3.1",
-
-        "atico/spreadsheet-translator-core": "^1.0",
-        "atico/spreadsheet-translator-symfony-bundle": "^1.0",
-        "atico/spreadsheet-translator-provider-localfile": "^1.0",
-        "atico/spreadsheet-translator-reader-xlsx": "^1.0",
-        "atico/spreadsheet-translator-exporter-php": "^1.0"
-    },
-    "config": {
-        "bin-dir": "bin"
-    }
+    "classmap": [
+      "app/AppKernel.php"
+    ]
+  },
+  "require": {
+    "php": ">=5.5.9",
+    "symfony/symfony": "^3.1",
+    "atico/spreadsheet-translator-core": "^1.0",
+    "atico/spreadsheet-translator-symfony-bundle": "^1.0",
+    "atico/spreadsheet-translator-provider-localfile": "^1.0",
+    "atico/spreadsheet-translator-reader-xlsx": "^1.0",
+    "atico/spreadsheet-translator-exporter-php": "^1.0"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "bash ./bin/create_translations_folder.sh"
+    ],
+    "post-update-cmd": [
+      "bash ./bin/create_translations_folder.sh"
+    ],
+    "post-install-cmd": [
+      "bash ./bin/create_translations_folder.sh"
+    ]
+  }
 }
