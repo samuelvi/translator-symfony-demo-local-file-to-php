@@ -20,7 +20,7 @@ use Symfony\Component\Translation\Translator;
 
 /**
  * Reference command:
- * bin/console atico:demo:translator --sheet-name=common --env=dev
+ * bin/console atico:demo:translator --sheet-name=common --book-name=frontend --env=dev
  */
 class TranslatorCommand extends ContainerAwareCommand
 {
@@ -35,7 +35,8 @@ class TranslatorCommand extends ContainerAwareCommand
         $this->setName('atico:demo:translator')
             ->setDescription("Translate From an Excel File to Symfony Translation format")
             ->setHelp("Translate From an Excel File to Symfony Translation format")
-            ->addOption('sheet-name', null, InputOption::VALUE_OPTIONAL, 'Single Sheet To Translate');
+            ->addOption('sheet-name', null, InputOption::VALUE_OPTIONAL, 'Single Sheet To Translate')
+            ->addOption('book-name', null, InputOption::VALUE_OPTIONAL, 'Book name To Translate (Domain)');
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)
@@ -53,14 +54,15 @@ class TranslatorCommand extends ContainerAwareCommand
     protected function buildParamsFromInput(InputInterface $input)
     {
         $sheetName = ($input->hasOption('sheet-name')) ? $input->getOption('sheet-name') : '';
+        $bookName = ($input->hasOption('book-name')) ? $input->getOption('book-name') : '';
 
-        $params = ['sheet_name' => $sheetName];
+        $params = ['sheet_name' => $sheetName, 'book_name' => $bookName];
         return $params;
     }
 
     private function doExecute(OutputInterface $output, $params)
     {
-        $this->processor->processSheet($params['sheet_name']);
+        $this->processor->processSheet($params['sheet_name'], $params['book_name']);
 
         $this->showTranslatedFragment($output);
     }
