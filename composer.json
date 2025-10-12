@@ -1,5 +1,5 @@
 {
-  "name": "atico/translator-symfony-demo-local-file-to-php",
+  "name": "samuelvi/translator-symfony-demo-local-file-to-php",
   "license": "MIT",
   "type": "project",
   "description": "Spreadsheet Translator. Symfony Demo Application. Tankes a local spreadsheet file and creates a translation file per locale in Php format",
@@ -12,13 +12,17 @@
     ]
   },
   "require": {
-    "php": ">=5.5.9",
-    "symfony/symfony": "^3.1",
-    "atico/spreadsheet-translator-core": "^1.0",
-    "atico/spreadsheet-translator-symfony-bundle": "^1.0",
-    "atico/spreadsheet-translator-provider-localfile": "^1.0",
-    "atico/spreadsheet-translator-reader-xlsx": "^1.0",
-    "atico/spreadsheet-translator-exporter-php": "^1.0"
+    "php": ">=8.1",
+    "symfony/symfony": "^6.0|7.0.*",
+    "samuelvi/spreadsheet-translator-core": "^8.0",
+    "samuelvi/spreadsheet-translator-symfony-bundle": "^8.0",
+    "samuelvi/spreadsheet-translator-provider-localfile": "^8.0",
+    "samuelvi/spreadsheet-translator-reader-xlsx": "8.1.1",
+    "samuelvi/spreadsheet-translator-exporter-php": "^8.0"
+  },
+  "require-dev": {
+    "rector/jack": "^0.2.9",
+    "rector/rector": "^2.1"
   },
   "config": {
     "bin-dir": "bin"

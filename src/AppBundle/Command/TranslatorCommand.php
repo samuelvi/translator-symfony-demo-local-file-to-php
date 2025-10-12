@@ -55,19 +55,17 @@ class TranslatorCommand extends ContainerAwareCommand
     {
         $sheetName = ($input->hasOption('sheet-name')) ? $input->getOption('sheet-name') : '';
         $bookName = ($input->hasOption('book-name')) ? $input->getOption('book-name') : '';
-
-        $params = ['sheet_name' => $sheetName, 'book_name' => $bookName];
-        return $params;
+        return ['sheet_name' => $sheetName, 'book_name' => $bookName];
     }
 
-    private function doExecute(OutputInterface $output, $params)
+    private function doExecute(OutputInterface $output, array $params): void
     {
         $this->processor->processSheet($params['sheet_name'], $params['book_name']);
 
         $this->showTranslatedFragment($output);
     }
 
-    private function showTranslatedFragment(OutputInterface $output)
+    private function showTranslatedFragment(OutputInterface $output): void
     {
         $locale = 'es_ES';
         $sectionSubsection = 'homepage.title';
