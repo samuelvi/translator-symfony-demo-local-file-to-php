@@ -77,8 +77,14 @@ Symfony Demos:
 Requirements
 ------------
 
-  * PHP >=5.5.9
-  * Symfony ~2.3|~3.0
+  * PHP >=8.3
+  * Symfony >=7.0
+
+
+Run rector
+----------
+
+vendor/rector/rector/bin/rector process
 
 
 Contributing
