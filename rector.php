@@ -6,6 +6,7 @@ use Rector\Config\RectorConfig;
 use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
+use Rector\Symfony\Set\SensioSetList;
 use Rector\Symfony\Set\SymfonySetList;
 
 return static function (RectorConfig $rectorConfig): void {
@@ -28,6 +29,10 @@ return static function (RectorConfig $rectorConfig): void {
         SymfonySetList::SYMFONY_CODE_QUALITY,
         SymfonySetList::SYMFONY_CONSTRUCTOR_INJECTION,
         DoctrineSetList::DOCTRINE_CODE_QUALITY,
+
+        // Rules for annotations to attributes
+        DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
+
     ]);
 
     // Optionally, import names and remove unused imports

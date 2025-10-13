@@ -9,10 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace AppBundle\Command;
+namespace App\Command;
 
 use Atico\SpreadsheetTranslator\Core\SpreadsheetTranslator;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -20,38 +21,36 @@ use Symfony\Component\Translation\Translator;
 
 /**
  * Reference command:
- * bin/console atico:demo:translator --sheet-name=common --book-name=frontend --env=dev
+ * bin/console samuelvi:demo:translator --sheet-name=common --book-name=frontend --env=dev
  */
-class TranslatorCommand extends ContainerAwareCommand
+#[AsCommand(
+    name: 'samuelvi:demo:translator',
+    description: 'Translate From an Excel File to Symfony Translation format',
+)]
+class TranslatorCommand extends Command
 {
-    /** @var SpreadsheetTranslator */
-    private $processor;
+    public function __construct(
+        private readonly SpreadsheetTranslator $processor,
+        private readonly Translator $translator
+    ) {
+        parent::__construct();
+    }
 
-    /** @var Translator */
-    private $translator;
-
-    protected function configure()
+    protected function configure(): void
     {
-        $this->setName('atico:demo:translator')
-            ->setDescription("Translate From an Excel File to Symfony Translation format")
-            ->setHelp("Translate From an Excel File to Symfony Translation format")
+        $this
             ->addOption('sheet-name', null, InputOption::VALUE_OPTIONAL, 'Single Sheet To Translate')
             ->addOption('book-name', null, InputOption::VALUE_OPTIONAL, 'Book name To Translate (Domain)');
     }
 
-    protected function initialize(InputInterface $input, OutputInterface $output)
-    {
-        $this->processor = $this->getContainer()->get('atico.spreadsheet_translator.manager');
-        $this->translator = $this->getContainer()->get('translator');
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $params = $this->buildParamsFromInput($input);
         $this->doExecute($output, $params);
+        return Command::SUCCESS;
     }
 
-    protected function buildParamsFromInput(InputInterface $input)
+    protected function buildParamsFromInput(InputInterface $input): array
     {
         $sheetName = ($input->hasOption('sheet-name')) ? $input->getOption('sheet-name') : '';
         $bookName = ($input->hasOption('book-name')) ? $input->getOption('book-name') : '';
