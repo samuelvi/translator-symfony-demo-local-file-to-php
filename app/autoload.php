@@ -8,7 +8,7 @@ use Composer\Autoload\ClassLoader;
  */
 $loader = require __DIR__.'/../vendor/autoload.php';
 
-spl_autoload_register( function () {
+spl_autoload_register( function (): void {
 
     $directory = new RecursiveDirectoryIterator(realpath(__DIR__ . '/../vendor/atico/spreadsheet-translator/src') . '/');
     $recIterator = new RecursiveIteratorIterator($directory);
@@ -20,6 +20,6 @@ spl_autoload_register( function () {
     }
 });
 
-AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+AnnotationRegistry::registerLoader($loader->loadClass(...));
 
 return $loader;

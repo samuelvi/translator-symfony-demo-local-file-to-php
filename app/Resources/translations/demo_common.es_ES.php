@@ -1,5 +1,5 @@
 <?php
-return array (
+return  [
   'homepage_title' => 'Traductor Hoja de Cálculo',
   'homepage_subtitle' => 'Traductor de páginas web a partir de hojas de cálculo',
-);
+];

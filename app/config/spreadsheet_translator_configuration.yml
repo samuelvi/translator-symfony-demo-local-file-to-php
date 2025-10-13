@@ -3,7 +3,7 @@ atico_spreadsheet_translator:
     frontend:
         provider:
             name: 'local_file'
-            source_resource: '%kernel.root_dir%/Resources/doc/homepage.xlsx'
+            source_resource: '%kernel.project_dir%/Resources/doc/homepage.xlsx'
         exporter:
             format: 'php'
             prefix: 'demo_'

@@ -1,38 +1,39 @@
 <?php
 
+use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use AppBundle\AppBundle;
+use Atico\Bundle\SpreadsheetTranslatorBundle\SpreadsheetTranslatorBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
-    public function registerBundles()
+    public function registerBundles(): iterable
     {
 
-        $bundles = [
-            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new AppBundle\AppBundle(),
-            new Atico\Bundle\SpreadsheetTranslatorBundle\SpreadsheetTranslatorBundle(),
+        return [
+            new FrameworkBundle(),
+            new AppBundle(),
+            new SpreadsheetTranslatorBundle(),
         ];
-
-        return $bundles;
     }
 
-    public function getRootDir()
+    public function getRootDir(): string
     {
         return __DIR__;
     }
 
-    public function getCacheDir()
+    public function getCacheDir(): string
     {
         return dirname(__DIR__).'/var/cache/'.$this->getEnvironment();
     }
 
-    public function getLogDir()
+    public function getLogDir(): string
     {
         return dirname(__DIR__).'/var/logs';
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $path = sprintf(
             '%s/config/%2$s/config_%2$s.yml',

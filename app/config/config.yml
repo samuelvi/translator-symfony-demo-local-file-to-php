@@ -9,7 +9,7 @@ framework:
     translator:
         enabled: true
         fallback: ["%locale%"]
-        paths: ['%kernel.root_dir%/../app/Resources/translations']
+        paths: ['%kernel.project_dir%/app/Resources/translations']
 
     default_locale:  "%locale%"
     secret:          Psssst
