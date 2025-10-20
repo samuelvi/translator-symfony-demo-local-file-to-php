@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Samuelvi/SpreadsheetTranslator package.
+ * This file is part of the Atico/SpreadsheetTranslator package.
  *
  * (c) Samuel Vicent <samuelvicent@gmail.com>
  *
@@ -17,22 +17,24 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Translation\Translator;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Reference command:
- * bin/console samuelvi:demo:translator --sheet-name=common --book-name=frontend --env=dev
+ * INSIDE DOCKER: XDEBUG_SESSION=PHPSTORM bin/console atico:demo:translator --sheet-name=common --book-name=frontend --env=dev
+ * FROM HOST: docker-compose -f docker/docker-compose.yaml exec php-atic sh -c "XDEBUG_SESSION=PHPSTORM php bin/console atico:demo:translator --sheet-name=common --book-name=frontend --env=dev"
  */
 #[AsCommand(
-    name: 'samuelvi:demo:translator',
+    name: 'atico:demo:translator',
     description: 'Translate From an Excel File to Symfony Translation format',
 )]
 class TranslatorCommand extends Command
 {
     public function __construct(
         private readonly SpreadsheetTranslator $processor,
-        private readonly Translator $translator
-    ) {
+        private readonly TranslatorInterface   $translator
+    )
+    {
         parent::__construct();
     }
 

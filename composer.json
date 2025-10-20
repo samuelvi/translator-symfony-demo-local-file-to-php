@@ -5,11 +5,8 @@
   "description": "Spreadsheet Translator. Symfony Demo Application. Takes a local spreadsheet file and creates a translation file per locale in Php format",
   "autoload": {
     "psr-4": {
-      "": "src/"
-    },
-    "classmap": [
-      "src/Kernel.php"
-    ]
+      "App\\": "src/App"
+    }
   },
   "require": {
     "php": ">=8.1",
@@ -41,16 +38,5 @@
     "allow-plugins": {
       "symfony/runtime": true
     }
-  },
-  "scripts": {
-    "post-create-project-cmd": [
-      "bash ./bin/create_translations_folder.sh"
-    ],
-    "post-update-cmd": [
-      "bash ./bin/create_translations_folder.sh"
-    ],
-    "post-install-cmd": [
-      "bash ./bin/create_translations_folder.sh"
-    ]
   }
 }
