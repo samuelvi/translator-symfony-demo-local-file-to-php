@@ -1,3 +1,7 @@
 vendor/
 downloaded_resource.xls
 var/
+.idea
+.claude
+translations/*
+!translations/.gitignore
