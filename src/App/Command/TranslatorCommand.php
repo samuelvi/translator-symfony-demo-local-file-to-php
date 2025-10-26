@@ -69,8 +69,8 @@ class TranslatorCommand extends Command
     private function showTranslatedFragment(OutputInterface $output): void
     {
         $locale = 'es_ES';
-        $sectionSubsection = 'homepage.title';
-        $translationDomain = 'demo_frontend';
+        $sectionSubsection = 'homepage_title';
+        $translationDomain = 'demo_common';
 
         $this->translator->setFallbackLocales(['en', $locale]);
         $output->writeln(

@@ -25,14 +25,14 @@ down:
 restart: down up
 
 shell:
-	$(DOCKER_COMPOSE) exec php-atic bash
+	$(DOCKER_COMPOSE) exec php-atic-lp bash
 
 composer-install:
-	$(DOCKER_COMPOSE) exec php-atic composer install
+	$(DOCKER_COMPOSE) exec php-atic-lp composer install
 
 # Allows running any Symfony command, e.g., `make console list` or `make console samuelvi:demo:translator`
 console:
-	$(DOCKER_COMPOSE) exec php-atic bin/console $(filter-out $@,$(MAKECMDGOALS))
+	$(DOCKER_COMPOSE) exec php-atic-lp bin/console $(filter-out $@,$(MAKECMDGOALS))
 
 # This is needed to pass arguments to the console command
 %:

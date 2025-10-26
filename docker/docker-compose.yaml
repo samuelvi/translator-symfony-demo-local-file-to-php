@@ -1,5 +1,5 @@
 services:
-  php-atic:
+  php-atic-lp:
     build:
       context: .
       dockerfile: Dockerfile

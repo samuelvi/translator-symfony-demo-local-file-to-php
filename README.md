@@ -10,7 +10,7 @@ The demo brings a command that takes a local spreadhseet file and creates a tran
 Installation
 ------------
 
-composer create-project atico/translator-symfony-demo-local-file-to-php
+composer create-project samuelvi/translator-symfony-demo-local-file-to-php
 
 This will install the demo application into your computer
 
@@ -54,11 +54,11 @@ Notes
 
 composer.json will include the following Spreadsheet Translator dependencies:
 ```
-  "atico/spreadsheet-translator-core": "^1.0",
-  "atico/spreadsheet-translator-symfony-bundle": "^1.0",
-  "atico/spreadsheet-translator-provider-localfile": "^1.0",
-  "atico/spreadsheet-translator-reader-xlsx": "^1.0",
-  "atico/spreadsheet-translator-exporter-php": "^1.0",
+  "samuelvi/spreadsheet-translator-core": "^8.0",
+  "samuelvi/spreadsheet-translator-symfony-bundle": "8.4.1",
+  "samuelvi/spreadsheet-translator-provider-localfile": "^8.1",
+  "samuelvi/spreadsheet-translator-reader-xlsx": "^8.1",
+  "samuelvi/spreadsheet-translator-exporter-php": "^8.1",
 ```
 
 Related
@@ -77,14 +77,31 @@ Symfony Demos:
 Requirements
 ------------
 
-  * PHP >=8.3
-  * Symfony >=7.0
+  * PHP >=8.4
+  * Symfony >=7.3
 
 
-Run rector
+Run Rector
 ----------
 
-vendor/rector/rector/bin/rector process
+Rector is configured to upgrade code to PHP 8.4 and Symfony 7.3 standards.
+
+**Dry-run mode (check changes without applying):**
+```bash
+bin/rector process --dry-run
+```
+
+**Apply changes:**
+```bash
+bin/rector process
+```
+
+**Using Docker:**
+```bash
+make shell
+bin/rector process --dry-run  # Check changes first
+bin/rector process            # Apply changes
+```
 
 
 Contributing

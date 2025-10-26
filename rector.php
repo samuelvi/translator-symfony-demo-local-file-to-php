@@ -12,20 +12,18 @@ use Rector\Symfony\Set\SymfonySetList;
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
         __DIR__ . '/src',
-        __DIR__ . '/app',
-        __DIR__ . '/tests',
     ]);
 
     // define sets of rules
     $rectorConfig->sets([
-        // Original rules
-        LevelSetList::UP_TO_PHP_81,
+        // PHP 8.4 upgrade rules
+        LevelSetList::UP_TO_PHP_84,
         SetList::CODE_QUALITY,
         SetList::DEAD_CODE,
         SetList::TYPE_DECLARATION,
 
-        // New rules for Symfony 7
-        SymfonySetList::SYMFONY_70,
+        // Symfony 7.3 upgrade rules
+        SymfonySetList::SYMFONY_71,
         SymfonySetList::SYMFONY_CODE_QUALITY,
         SymfonySetList::SYMFONY_CONSTRUCTOR_INJECTION,
         DoctrineSetList::DOCTRINE_CODE_QUALITY,
