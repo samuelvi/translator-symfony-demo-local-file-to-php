@@ -22,20 +22,15 @@ Running the demo
 
 type in you terminal: bin/console atico:demo:translator --sheet-name=common
 
-This command will generate the translation files that will be stored into app/translations folder.
+This command will generate the translation files that will be stored into translations folder.
 
 The generated files will be:
 
 ```
-  app
-  |
-  └───Resources
-     │
-     └──translations
-         │  demo_common.en_GB.php
-         │  demo_common.es_ES.php   
-         │  demo_common.fr_FR.php
-
+translations/
+├── demo_common.en_GB.php
+├── demo_common.es_ES.php
+└── demo_common.fr_FR.php
 ```      
                               
 demo_common.en_GB.php will contain:
@@ -69,8 +64,9 @@ Symfony Bundle:
 
 Symfony Demos:
 
+- [Symfony Bundle](https://github.com/samuelvi/spreadsheet-translator-symfony-bundle)
 - <a href="https://github.com/samuelvi/translator-symfony-demo-local-file-to-php">Symfony Demo. Takes a local file and creates translation files per locale in php format</a>
-- <a href="https://github.com/samuelvi/translator-symfony-demo-google-to-yml">Symfony Demo. Takes a google drive spreadsheet and creates translation files per locale in yml format</a>
+- <a href="https://github.com/samuelvi/translator-symfony-demo-google-drive-provider-yml-exporter">Symfony Demo. Takes a google drive spreadsheet and creates translation files per locale in yml format</a>
 - <a href="https://github.com/samuelvi/translator-symfony-demo-onedrive-to-xliff">Symfony Demo. Takes a microsoft one drive spreadsheet and creates translation files per locale in xliff format</a>
 
 
@@ -86,20 +82,15 @@ Run Rector
 
 Rector is configured to upgrade code to PHP 8.4 and Symfony 7.3 standards.
 
-**Dry-run mode (check changes without applying):**
+**Using Make commands (Docker):**
 ```bash
-bin/rector process --dry-run
+make rector-dry-run  # Check changes without applying
+make rector          # Apply changes
 ```
 
-**Apply changes:**
+**Direct commands:**
 ```bash
-bin/rector process
-```
-
-**Using Docker:**
-```bash
-make shell
-bin/rector process --dry-run  # Check changes first
+bin/rector process --dry-run  # Check changes
 bin/rector process            # Apply changes
 ```
 
