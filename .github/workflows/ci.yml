@@ -47,7 +47,7 @@ jobs:
         run: bin/rector process --dry-run
 
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit
+        run: bin/phpunit
 
   code-coverage:
     name: Code Coverage
@@ -80,7 +80,7 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-interaction
 
       - name: Run tests with coverage
-        run: vendor/bin/phpunit --coverage-clover coverage.xml
+        run: bin/phpunit --coverage-clover coverage.xml
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
