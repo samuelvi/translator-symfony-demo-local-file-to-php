@@ -20,7 +20,15 @@ The source demo spreadsheet file is located at app/Resources/doc/homepage.xlsx
 Running the demo
 ---------
 
-type in you terminal: bin/console atico:demo:translator --sheet-name=common
+**Using Make commands (recommended):**
+```bash
+make demo  # Runs the translator with default options
+```
+
+**Using console directly:**
+```bash
+bin/console atico:demo:translator --sheet-name=common --book-name=frontend
+```
 
 This command will generate the translation files that will be stored into translations folder.
 
@@ -31,8 +39,8 @@ translations/
 ├── demo_common.en_GB.php
 ├── demo_common.es_ES.php
 └── demo_common.fr_FR.php
-```      
-                              
+```
+
 demo_common.en_GB.php will contain:
 
 ```php
@@ -77,28 +85,68 @@ Requirements
   * Symfony >=7.3
 
 
-Run Rector
-----------
+Development Commands
+--------------------
 
-Rector is configured to upgrade code to PHP 8.4 and Symfony 7.3 standards.
+The project includes a comprehensive Makefile for common development tasks.
 
-**Using Make commands (Docker):**
+### Docker Management
 ```bash
-make rector-dry-run  # Check changes without applying
-make rector          # Apply changes
+make up              # Start development environment
+make down            # Stop environment
+make build           # Rebuild Docker images
+make shell           # Access PHP container shell
 ```
 
-**Direct commands:**
+### Dependencies
 ```bash
-bin/rector process --dry-run  # Check changes
-bin/rector process            # Apply changes
+make composer-install  # Install dependencies
+make composer-update   # Update dependencies
 ```
 
+### Code Quality
+```bash
+make rector-dry-run  # Check Rector changes without applying
+make rector          # Apply Rector code changes
+```
+
+Rector is configured with modern syntax to upgrade code to PHP 8.4 and Symfony 7.3+ standards:
+- PHP 8.4 features (property hooks, asymmetric visibility, etc.)
+- Symfony 7.1+ best practices
+- Code quality improvements (dead code removal, type declarations, etc.)
+- Doctrine annotations to attributes conversion
+
+### Testing
+```bash
+make test              # Run PHPUnit tests
+make test-coverage     # Run tests with HTML coverage report
+make qa                # Run all quality checks (Rector + tests)
+```
+
+The project includes comprehensive unit tests with:
+- PHPUnit 11.5+
+- Symfony PHPUnit Bridge
+- Tests for TranslatorCommand and Kernel
+- Modern PHP 8.4 attributes (#[Test], #[CoversClass])
+
+
+Continuous Integration
+----------------------
+
+GitHub Actions workflow is configured to run on every push and pull request:
+- Code quality checks with Rector
+- PHPUnit tests with coverage
+- Runs on PHP 8.4
 
 Contributing
 ------------
 
 We welcome contributions to this project, including pull requests and issues (and discussions on existing issues).
+
+**Before submitting a PR, please ensure:**
+- Run `make qa` to verify code quality and tests pass
+- Add tests for new features
+- Update documentation as needed
 
 If you'd like to contribute code but aren't sure what, the issues list is a good place to start. If you're a first-time code contributor, you may find Github's guide to <a href="https://guides.github.com/activities/forking/">forking projects</a> helpful.
 
