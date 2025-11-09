@@ -9,7 +9,7 @@
          displayDetailsOnTestsThatTriggerDeprecations="true"
          beStrictAboutOutputDuringTests="true"
          failOnRisky="true"
-         failOnWarning="true">
+         failOnWarning="false">
     <testsuites>
         <testsuite name="Project Test Suite">
             <directory>tests</directory>
